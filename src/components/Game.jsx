@@ -1,1 +1,3 @@
-export function Game() {}
+export function Game({ children }) {
+  return <>{children}</>;
+}

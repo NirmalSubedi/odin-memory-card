@@ -1,1 +1,3 @@
-export function CardGroup() {}
+export function CardGroup({ children }) {
+  return <>{children}</>;
+}
