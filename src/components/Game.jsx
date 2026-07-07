@@ -8,14 +8,24 @@ export function Game({ items }) {
   const [isGameOver, setIsGameOver] = useState(false);
 
   const onIncreaseScore = () => {
-    setScore(score + 1);
-    shuffle(items);
-  };
-  const onRestartGame = () => setIsGameOver(false);
-  const onGameOver = () => {
-    if (score > bestScore) {
-      setBestScore(score);
+    const nextScore = score + 1;
+    const maximumItems = items.length;
+
+    setScore(nextScore);
+    if (nextScore > bestScore && nextScore === maximumItems) {
+      setBestScore(nextScore);
     }
+    nextScore === maximumItems ? onGameOver() : shuffle(items);
+  };
+
+  const onRestartGame = () => {
+    setScore(0);
+    setIsGameOver(false);
+    shuffle(items);
+    items.forEach((item) => (item.id = crypto.randomUUID()));
+  };
+
+  const onGameOver = () => {
     setIsGameOver(true);
   };
 
@@ -25,9 +35,9 @@ export function Game({ items }) {
       <CardGroup>
         {items?.map((item) => (
           <Card
+            key={item.id}
             {...{
-              item,
-              key: item.id,
+              ...item,
               isGameOver,
               endGame: onGameOver,
               increaseScore: onIncreaseScore,

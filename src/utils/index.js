@@ -1,1 +1,1 @@
-export { shuffle } from "shuffle.js";
+export { shuffle } from "./shuffle.js";

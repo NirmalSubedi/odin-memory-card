@@ -1,0 +1,22 @@
+.card-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-auto-flow: column;
+  min-height: 100px;
+}
+
+.card-group > * {
+  background-color: blue;
+
+  display: grid;
+  place-content: center;
+  color: #fff;
+}
+
+.card-group > :first-child {
+  background-color: red;
+}
+
+.card-group > :last-child {
+  background-color: green;
+}
