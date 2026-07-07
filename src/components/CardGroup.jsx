@@ -1,3 +1,3 @@
 export function CardGroup({ children }) {
-  return <>{children}</>;
+  return <main className="card-group">{children}</main>;
 }

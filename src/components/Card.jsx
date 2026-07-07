@@ -1,10 +1,20 @@
 import { useState } from "react";
 
-export function Card({ img, altText, desc, endGame, increaseScore }) {
+export function Card({
+  img,
+  altText,
+  desc,
+  isGameOver,
+  endGame,
+  increaseScore,
+  restartGame,
+}) {
   const [wasClicked, setWasClicked] = useState(false);
 
   const handleClick = () => {
-    if (wasClicked) {
+    if (isGameOver) {
+      restartGame();
+    } else if (wasClicked) {
       endGame();
     } else {
       increaseScore();
