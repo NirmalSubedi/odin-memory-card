@@ -1,29 +1,33 @@
 .score-group {
-  justify-self: end;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  place-self: end;
+  font-family: var(--secondary-ff);
+  display: grid;
+  justify-items: center;
 }
 
 .score {
+  font-size: var(--fs-md);
+
   display: flex;
   gap: 0.5rem;
   align-items: baseline;
-  font-size: 2rem;
 }
 
 .current-score {
   background-color: var(--score-bg);
   color: var(--score-text);
   border-radius: var(--card-border-radius);
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--mono-ff);
+  font-size: var(--fs-bg);
 
-  font-size: 4rem;
-  padding: 0.5rem;
-  font-weight: 700;
+  padding: 0.5rem 0.5rem 0.75rem 0.75rem;
   line-height: 1;
 }
 
 @media (width<=600px) {
   .score-group {
+    width: 100%;
+    text-align: center;
     justify-self: center;
   }
 }

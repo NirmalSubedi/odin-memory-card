@@ -1,7 +1,12 @@
 .banner {
   text-align: center;
+  font-size: calc(var(--fs-bg) / 2);
 }
 
 .instructions {
   text-transform: capitalize;
+  font-size: var(--fs-sm);
+  font-family: var(--secondary-ff);
+
+  margin-top: -3px;
 }

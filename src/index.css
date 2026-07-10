@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "Cherry Swash";
+  src:
+    url("./assets/fonts/subset-CherrySwash-Regular.woff2") format("woff2"),
+    url("./assets/fonts/subset-CherrySwash-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Abyssinica SIL";
+  src:
+    url("./assets/fonts/subset-AbyssinicaSIL-Regular.woff2") format("woff2"),
+    url("./assets/fonts/subset-AbyssinicaSIL-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Reddit Mono";
+  src:
+    url("./assets/fonts/subset-RedditMono-Regular.woff2") format("woff2"),
+    url("./assets/fonts/subset-RedditMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --page-bg: #f1f1f1;
   --text: #000000;
@@ -9,11 +39,15 @@
 
   --card-border-radius: 12px;
 
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --primary-ff: "Cherry Swash", system-ui, sans-serif;
+  --secondary-ff: "Abyssinica SIL", Roboto, serif;
+  --mono-ff: "Reddit Mono", ui-monospace, monospace;
 
-  font-family: var(--sans);
+  --fs-bg: clamp(3.15rem, calc(2.114rem + 3.239vw), 6rem);
+  --fs-md: clamp(2rem, calc(1.709rem + 0.909vw), 2.8rem);
+  --fs-sm: clamp(1.38rem, calc(1.155rem + 0.705vw), 2rem);
+
+  font-family: var(--primary-ff);
   font-size: 62.5%; /* 1px = 0.1rem */
   color-scheme: light dark;
   color: var(--text);
@@ -56,6 +90,10 @@ img {
   max-width: 100%;
 }
 
+button {
+  font: inherit;
+}
+
 #root {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -88,5 +126,18 @@ img {
 
   #root > * {
     grid-area: revert;
+  }
+
+  .banner,
+  .score-group {
+    position: sticky;
+    top: 0;
+    background-color: var(--page-bg);
+  }
+
+  .score-group {
+    --_line-height: 1.65;
+    top: calc((var(--fs-bg) / 2 + var(--fs-md)) * var(--_line-height));
+    padding: 0.5rem 0;
   }
 }
