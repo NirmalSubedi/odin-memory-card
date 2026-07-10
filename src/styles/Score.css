@@ -11,11 +11,15 @@
 }
 
 .current-score {
+  background-color: var(--score-bg);
+  color: var(--score-text);
+  border-radius: var(--card-border-radius);
   font-family: "Courier New", Courier, monospace;
-  background-color: yellow;
+
   font-size: 4rem;
   padding: 0.5rem;
   font-weight: 700;
+  line-height: 1;
 }
 
 @media (width<=600px) {

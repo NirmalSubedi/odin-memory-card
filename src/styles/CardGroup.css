@@ -1,5 +1,5 @@
 .card-group {
-  border-top: 1px solid black;
+  border-top: 1px solid var(--text);
   margin-top: 1rem;
 
   display: grid;
@@ -10,12 +10,10 @@
 }
 
 .card {
-  --gradient-colors: #000, #222;
-
-  background: linear-gradient(var(--gradient-colors));
-  color: white;
+  background: linear-gradient(var(--card-gradient-colors));
+  color: var(--card-text);
+  border-radius: var(--card-border-radius);
   border: none;
-  border-radius: 12px;
 
   font-size: 3rem;
   text-align: center;
@@ -25,7 +23,8 @@
 }
 
 .card:hover {
-  --gradient-colors: yellow, #222;
+  background: linear-gradient(var(--card-gradient-colors-h));
+  color: var(--card-text-h);
 }
 
 .card:focus {
