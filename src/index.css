@@ -1,7 +1,7 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #fff;
+  --bg: #f1f1f1;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -16,6 +16,7 @@
   --mono: ui-monospace, Consolas, monospace;
 
   font-family: var(--sans);
+  font-size: 62.5%; /* 1px = 0.1rem */
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -41,9 +42,57 @@
   }
 }
 
-*:not(dialog),
+*,
 *::before,
 *::after {
-  margin: 0;
   box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+body {
+  font-size: 1.6rem;
+  overflow-wrap: break-word;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas:
+    ". banner scores"
+    "cards cards cards";
+  justify-content: center;
+  padding: 2rem;
+}
+
+.banner {
+  grid-area: banner;
+}
+
+.score-group {
+  grid-area: scores;
+}
+
+.card-group {
+  grid-area: cards;
+}
+
+@media (width <= 600px) {
+  #root {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  #root > * {
+    grid-area: revert;
+  }
 }

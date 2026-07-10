@@ -1,16 +1,36 @@
+import "./styles/App.css";
 import { Game } from "./components/index.jsx";
+import Pokemon from "./assets/1.svg";
 
 const items = [
   {
-    desc: "1",
+    desc: "Crabominable",
+    img: Pokemon,
     id: crypto.randomUUID(),
   },
   {
-    desc: "2",
+    desc: "Crabominable",
+    img: Pokemon,
     id: crypto.randomUUID(),
   },
   {
-    desc: "3",
+    desc: "Crabominable",
+    img: Pokemon,
+    id: crypto.randomUUID(),
+  },
+  {
+    desc: "Crabominable",
+    img: Pokemon,
+    id: crypto.randomUUID(),
+  },
+  {
+    desc: "Crabominable",
+    img: Pokemon,
+    id: crypto.randomUUID(),
+  },
+  {
+    desc: "Crabominable",
+    img: Pokemon,
     id: crypto.randomUUID(),
   },
 ];
@@ -18,8 +38,10 @@ const items = [
 function App() {
   return (
     <>
-      <h1>Memory Card</h1>
-      <header>Click each card once.</header>
+      <header className="banner">
+        <h1>Memory Card</h1>
+        <p className="instructions">Click each card once</p>
+      </header>
       <Game {...{ items }} />
     </>
   );

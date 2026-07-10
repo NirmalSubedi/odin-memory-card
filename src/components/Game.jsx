@@ -12,7 +12,7 @@ export function Game({ items }) {
     const maximumItems = items.length;
 
     setScore(nextScore);
-    if (nextScore > bestScore && nextScore === maximumItems) {
+    if (nextScore > bestScore) {
       setBestScore(nextScore);
     }
     nextScore === maximumItems ? onGameOver() : shuffle(items);
