@@ -18,6 +18,7 @@
 
   font-size: calc(var(--fs-md));
   padding: 2rem 3.5rem 2rem;
+  display: grid;
 }
 
 .card:hover {
@@ -28,4 +29,13 @@
 .card:focus {
   outline-color: var(--text);
   outline-offset: 5px;
+}
+
+.card-image {
+  place-self: end center;
+}
+
+.card-description {
+  align-self: end;
+  text-transform: capitalize;
 }

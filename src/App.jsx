@@ -1,40 +1,11 @@
 import "./styles/App.css";
-import Pokemon from "./assets/1.svg";
+// import Pokemon from "./assets/1.svg";
 import { Game } from "./components/index.jsx";
-import { getPokemonData } from "./utils/index.js";
+import { getCardData } from "./utils/index.js";
 
-const items = [
-  {
-    desc: "Crabominable",
-    img: Pokemon,
-    id: crypto.randomUUID(),
-  },
-  {
-    desc: "Crabominable",
-    img: Pokemon,
-    id: crypto.randomUUID(),
-  },
-  {
-    desc: "Crabominable",
-    img: Pokemon,
-    id: crypto.randomUUID(),
-  },
-  {
-    desc: "Crabominable",
-    img: Pokemon,
-    id: crypto.randomUUID(),
-  },
-  {
-    desc: "Crabominable",
-    img: Pokemon,
-    id: crypto.randomUUID(),
-  },
-  {
-    desc: "Crabominable",
-    img: Pokemon,
-    id: crypto.randomUUID(),
-  },
-];
+const CARD_AMOUNT = 15;
+const items = [];
+items.push(...(await getCardData(CARD_AMOUNT)));
 
 function App() {
   return (

@@ -24,7 +24,7 @@ export function Card({
 
   return (
     <button className="card" onClick={handleClick}>
-      <img className="card-image" src={img} alt={altText} width="250" />
+      <img className="card-image" src={img} alt={altText} />
       <p className="card-description">{desc}</p>
     </button>
   );
