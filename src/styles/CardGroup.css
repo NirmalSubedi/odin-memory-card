@@ -8,34 +8,3 @@
   justify-content: center;
   gap: 2rem;
 }
-
-.card {
-  background: linear-gradient(var(--card-gradient-colors));
-  color: var(--card-text);
-  border-radius: var(--card-border-radius);
-  text-align: center;
-  border: none;
-
-  font-size: calc(var(--fs-md));
-  padding: 2rem 3.5rem 2rem;
-  display: grid;
-}
-
-.card:hover {
-  background: linear-gradient(var(--card-gradient-colors-h));
-  color: var(--card-text-h);
-}
-
-.card:focus {
-  outline-color: var(--text);
-  outline-offset: 5px;
-}
-
-.card-image {
-  place-self: end center;
-}
-
-.card-description {
-  align-self: end;
-  text-transform: capitalize;
-}

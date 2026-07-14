@@ -1,3 +1,4 @@
+import "../styles/Card.css";
 import { useState } from "react";
 
 export function Card({

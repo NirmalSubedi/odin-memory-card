@@ -12,7 +12,7 @@ function App() {
     <>
       <header className="banner">
         <h1>Memory Card</h1>
-        <p className="instructions">Click each card once</p>
+        <p className="instructions">Select each card once</p>
       </header>
       <Game {...{ items }} />
     </>

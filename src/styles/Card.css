@@ -1,0 +1,41 @@
+.card {
+  background: linear-gradient(
+    var(--card-start-gradient),
+    var(--card-end-gradient)
+  );
+  color: var(--card-text);
+  border-radius: var(--card-border-radius);
+  text-align: center;
+  border: none;
+
+  font-size: calc(var(--fs-md));
+  padding: 2rem 3.5rem 2rem;
+  display: grid;
+}
+
+.card:hover {
+  --card-start-gradient: var(--score-bg);
+
+  color: var(--card-text-h);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card:hover {
+    --card-start-gradient: #dddddd;
+    --card-end-gradient: #ffffff;
+  }
+}
+
+.card:focus {
+  outline-color: var(--text);
+  outline-offset: 5px;
+}
+
+.card-image {
+  place-self: end center;
+}
+
+.card-description {
+  align-self: end;
+  text-transform: capitalize;
+}

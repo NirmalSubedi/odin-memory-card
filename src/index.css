@@ -28,14 +28,26 @@
   font-display: swap;
 }
 
+@property --gradient-start {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+
+@property --gradient-end {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #222;
+}
+
 :root {
   --page-bg: #f1f1f1;
   --text: #000000;
   --score-bg: #fbf546;
   --card-text: #ffffff;
   --card-text-h: #ffffff;
-  --card-gradient-colors: #000000, #222222;
-  --card-gradient-colors-h: var(--score-bg), #222222;
+  --card-start-gradient: #000000;
+  --card-end-gradient: #222222;
 
   --card-border-radius: 12px;
 
@@ -66,7 +78,6 @@
     --score-text: #000000;
     --card-text: #ffffff;
     --card-text-h: #000000;
-    --card-gradient-colors-h: #dddddd, #ffffff;
   }
 }
 
