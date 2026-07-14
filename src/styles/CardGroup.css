@@ -4,9 +4,9 @@
   padding: 5rem 0;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, min(100%, 250px));
+  grid-template-columns: repeat(auto-fit, min(100%, 270px));
   justify-content: center;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .card {
@@ -17,9 +17,7 @@
   border: none;
 
   font-size: calc(var(--fs-md));
-  display: grid;
-  gap: 1rem;
-  padding: 3rem;
+  padding: 2rem 3.5rem 2rem;
 }
 
 .card:hover {

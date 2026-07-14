@@ -1,6 +1,7 @@
 import "./styles/App.css";
-import { Game } from "./components/index.jsx";
 import Pokemon from "./assets/1.svg";
+import { Game } from "./components/index.jsx";
+import { getPokemonData } from "./utils/index.js";
 
 const items = [
   {

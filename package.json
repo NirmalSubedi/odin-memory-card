@@ -7,6 +7,7 @@
     "dev": "vite --port 8080",
     "dev:o": "npm run dev & ~/open-chrome.sh http://localhost:8080",
     "build": "vite build",
+    "build:o": "npm run build && npm run preview & ~/open-chrome.sh http://localhost:4173",
     "lint": "eslint .",
     "preview": "vite preview"
   },
