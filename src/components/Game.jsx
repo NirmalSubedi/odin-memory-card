@@ -75,7 +75,7 @@ export function Game() {
   return (
     <>
       <Score {...{ score, bestScore }} />
-      <CardGroup>
+      <CardGroup {...{ isGameOver, onRestartGame }}>
         {items?.map((item) => (
           <Card
             key={item.id}
@@ -84,7 +84,6 @@ export function Game() {
               isGameOver,
               endGame: onGameOver,
               increaseScore: onIncreaseScore,
-              restartGame: onRestartGame,
             }}
           />
         ))}

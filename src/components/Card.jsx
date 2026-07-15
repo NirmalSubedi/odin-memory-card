@@ -5,17 +5,14 @@ export function Card({
   img,
   altText,
   desc,
-  isGameOver,
   endGame,
   increaseScore,
-  restartGame,
+  // restartGame,
 }) {
   const [wasClicked, setWasClicked] = useState(false);
 
   const handleClick = () => {
-    if (isGameOver) {
-      restartGame();
-    } else if (wasClicked) {
+    if (wasClicked) {
       endGame();
     } else {
       increaseScore();
