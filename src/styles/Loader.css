@@ -1,0 +1,31 @@
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.loader-icon {
+  --_stroke: #000;
+  --_primary: #f00;
+  --_secondary: #fff;
+
+  border-radius: 50%;
+  outline: 3px solid var(--_stroke);
+  background:
+    radial-gradient(
+      1Q,
+      var(--_secondary) 3px,
+      var(--_stroke) 0 6px,
+      transparent
+    ),
+    linear-gradient(var(--_primary) 45%, var(--_stroke), var(--_secondary) 55%);
+  animation: spin 1s infinite ease-in-out;
+
+  width: 40px;
+  height: 40px;
+}

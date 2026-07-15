@@ -8,4 +8,5 @@
   grid-auto-rows: 1fr;
   justify-content: center;
   gap: 2rem;
+  position: relative;
 }

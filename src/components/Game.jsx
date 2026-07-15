@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CardGroup, Card, Score } from "./index.jsx";
+import { CardGroup, Card, Score, Loader } from "./index.jsx";
 import { increaseDifficulty, shuffle, getCardData } from "../utils/index.js";
 
 const START_DIFFICULTY = "easy";
@@ -88,7 +88,7 @@ export function Game() {
             }}
           />
         ))}
-        {items.length === 0 && <h2>Loading Cards...</h2>}
+        {items.length === 0 && <Loader text="Loading Cards" />}
       </CardGroup>
     </>
   );

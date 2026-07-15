@@ -28,18 +28,6 @@
   font-display: swap;
 }
 
-@property --gradient-start {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #000;
-}
-
-@property --gradient-end {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #222;
-}
-
 :root {
   --page-bg: #f1f1f1;
   --text: #000000;
@@ -155,5 +143,17 @@ button {
     --_line-height: 1.6;
     top: calc((var(--fs-bg) / 2 + var(--fs-md)) * var(--_line-height));
     padding: 0.5rem 0;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
   }
 }
