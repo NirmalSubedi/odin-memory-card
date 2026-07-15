@@ -88,6 +88,7 @@ export function Game() {
             }}
           />
         ))}
+        {items.length === 0 && <h2>Loading Cards...</h2>}
       </CardGroup>
     </>
   );
