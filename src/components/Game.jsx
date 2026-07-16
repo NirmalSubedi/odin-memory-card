@@ -1,5 +1,6 @@
+import Pokemon from "../assets/1.svg";
 import { useEffect, useState } from "react";
-import { CardGroup, Card, Score, Loader } from "./index.jsx";
+import { CardGroup, Card, Score, Loader, Difficulty } from "./index.jsx";
 import { increaseDifficulty, shuffle, getCardData } from "../utils/index.js";
 
 const START_DIFFICULTY = "easy";
@@ -18,28 +19,35 @@ const difficultyConfig = {
   },
 };
 
+const initialItems = Array.from({ length: 15 }, () => ({
+  desc: "Crabominable",
+  img: Pokemon,
+  id: crypto.randomUUID(),
+}));
+
 export function Game() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [difficulty, setDifficulty] = useState(START_DIFFICULTY);
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
+  const [items, setItems] = useState(initialItems);
 
-  useEffect(() => {
-    let ignore = false;
+  // useEffect(() => {
+  //   let ignore = false;
 
-    (async function getData() {
-      if (!Object.hasOwn(difficultyConfig, difficulty)) return;
+  //   (async function getData() {
+  //     if (!Object.hasOwn(difficultyConfig, difficulty)) return;
 
-      const option = difficultyConfig[difficulty];
-      const cardData = await getCardData(option.cardAmount, option.cardOffset);
-      if (ignore) return;
+  //     const option = difficultyConfig[difficulty];
+  //     const cardData = await getCardData(option.cardAmount, option.cardOffset);
+  //     if (ignore) return;
 
-      setItems(cardData);
-    })();
+  //     setItems(cardData);
+  //   })();
 
-    return () => (ignore = true);
-  }, [difficulty]);
+  //   return () => (ignore = true);
+  // }, [difficulty]);
 
   const onIncreaseScore = () => {
     const nextScore = score + 1;
@@ -57,12 +65,11 @@ export function Game() {
     setIsGameOver(false);
 
     const maxScore = items.length;
-    if (score >= maxScore) {
-      const nextDifficulty = increaseDifficulty(difficulty);
-      const isNewDifficulty = nextDifficulty !== difficulty;
+    const nextDifficulty = increaseDifficulty(difficulty);
+    const isNewDifficulty = nextDifficulty !== difficulty;
 
-      if (isNewDifficulty) return setDifficulty(nextDifficulty);
-    }
+    if (score >= maxScore && isNewDifficulty)
+      return setDifficulty(nextDifficulty);
 
     shuffle(items);
     items.forEach((item) => (item.id = crypto.randomUUID()));
@@ -74,6 +81,7 @@ export function Game() {
 
   return (
     <>
+      <Difficulty {...{ difficultyName: difficulty }} />
       <Score {...{ score, bestScore }} />
       <CardGroup {...{ isGameOver, onRestartGame }}>
         {items?.map((item) => (

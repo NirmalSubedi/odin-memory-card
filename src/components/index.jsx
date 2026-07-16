@@ -3,3 +3,4 @@ export { Card } from "./Card.jsx";
 export { CardGroup } from "./CardGroup.jsx";
 export { Score } from "./Score.jsx";
 export { Loader } from "./Loader.jsx";
+export { Difficulty } from "./Difficulty.jsx";

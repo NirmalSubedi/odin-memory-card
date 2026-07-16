@@ -36,6 +36,9 @@
   --card-text-h: #ffffff;
   --card-start-gradient: #000000;
   --card-end-gradient: #222222;
+  --diff-easy: #95ec45;
+  --diff-medium: #ff6d2f;
+  --diff-hard: #ff5757;
 
   --card-border-radius: 12px;
 
@@ -66,6 +69,9 @@
     --score-text: #000000;
     --card-text: #ffffff;
     --card-text-h: #000000;
+    --diff-easy: #3f8400;
+    --diff-medium: #d74100;
+    --diff-hard: #df2525;
   }
 }
 
@@ -95,12 +101,16 @@ button {
 
 #root {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas:
-    ". banner scores"
+    "difficulty banner scores"
     "cards cards cards";
   justify-content: center;
   padding: 2rem;
+}
+
+.difficulty {
+  grid-area: difficulty;
 }
 
 .banner {
@@ -132,16 +142,11 @@ button {
     grid-area: revert;
   }
 
-  .banner,
   .score-group {
     position: sticky;
     top: 0;
     background-color: var(--page-bg);
-  }
-
-  .score-group {
-    --_line-height: 1.6;
-    top: calc((var(--fs-bg) / 2 + var(--fs-md)) * var(--_line-height));
+    z-index: 1;
     padding: 0.5rem 0;
   }
 }
@@ -156,4 +161,18 @@ button {
   100% {
     transform: rotate(1turn);
   }
+}
+
+@keyframes reveal {
+  from {
+    transform: rotateY(90deg);
+  }
+}
+
+.reveal {
+  animation: reveal 400ms ease-in backwards;
+}
+
+.hide {
+  animation: reveal 400ms ease-out reverse forwards;
 }

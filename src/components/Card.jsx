@@ -1,14 +1,7 @@
 import "../styles/Card.css";
 import { useState } from "react";
 
-export function Card({
-  img,
-  altText,
-  desc,
-  endGame,
-  increaseScore,
-  // restartGame,
-}) {
+export function Card({ img, altText, desc, endGame, increaseScore }) {
   const [wasClicked, setWasClicked] = useState(false);
 
   const handleClick = () => {

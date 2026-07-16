@@ -1,0 +1,29 @@
+.difficulty {
+  background-color: red;
+  place-self: end start;
+  padding: 0.5rem 1rem;
+}
+
+.easy {
+  background-color: var(--diff-easy);
+}
+
+.medium {
+  background-color: var(--diff-medium);
+}
+
+.hard {
+  background-color: var(--diff-hard);
+}
+
+.difficulty-name {
+  font-family: var(--secondary-ff);
+  font-size: var(--fs-md);
+  text-transform: capitalize;
+}
+
+@media (width<=600px) {
+  .difficulty {
+    justify-self: center;
+  }
+}
