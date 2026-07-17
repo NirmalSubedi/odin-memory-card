@@ -97,6 +97,7 @@ img {
 
 button {
   font: inherit;
+  cursor: pointer;
 }
 
 #root {
@@ -149,6 +150,14 @@ button {
     z-index: 1;
     padding: 0.5rem 0;
   }
+
+  .notice-container {
+    position: sticky;
+    top: calc(var(--fs-bg) * 1.5);
+    z-index: 1;
+    padding: 0.5rem 0;
+    background-color: var(--page-bg);
+  }
 }
 
 @keyframes pulse {
@@ -163,16 +172,40 @@ button {
   }
 }
 
-@keyframes reveal {
-  from {
-    transform: rotateY(90deg);
+@keyframes flip {
+  50% {
+    transform: rotateY(180deg);
   }
 }
 
-.reveal {
-  animation: reveal 400ms ease-in backwards;
+.flip {
+  animation: flip 400ms linear 1;
 }
 
-.hide {
-  animation: reveal 400ms ease-out reverse forwards;
+.reveal-increase {
+  animation: flip-right 500ms linear backwards;
+}
+
+.hide-increase {
+  animation: flip-right 500ms linear reverse;
+}
+
+.reveal-reset {
+  animation: flip-left 500ms linear backwards;
+}
+
+.hide-reset {
+  animation: flip-left 500ms linear reverse;
+}
+
+.sr-only {
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  pointer-events: none;
 }

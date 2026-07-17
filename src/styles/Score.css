@@ -26,8 +26,15 @@
 
 @media (width<=600px) {
   .score-group {
-    width: 100%;
-    text-align: center;
+    position: sticky;
+    top: 0;
     justify-self: center;
+    z-index: 1;
+
+    background-color: var(--page-bg);
+
+    width: 100%;
+    padding: 0.5rem 0;
+    text-align: center;
   }
 }

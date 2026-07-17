@@ -1,0 +1,31 @@
+.notice {
+  transform-origin: top left;
+  animation: pulse linear infinite 3000ms;
+  font-size: calc(var(--fs-sm) * 0.9);
+}
+
+.notice.sr-only {
+  animation-play-state: paused;
+}
+
+.hint {
+  font-family: var(--secondary-ff);
+  font-size: calc(var(--fs-sm) * 0.8);
+}
+
+@media (width<=600px) {
+  .notice-container {
+    overflow: hidden;
+  }
+
+  .notice {
+    text-align: center;
+    transform-origin: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notice {
+    animation-duration: 0ms;
+  }
+}

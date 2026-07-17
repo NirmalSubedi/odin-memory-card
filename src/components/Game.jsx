@@ -1,6 +1,13 @@
 import Pokemon from "../assets/1.svg";
 import { useEffect, useState } from "react";
-import { CardGroup, Card, Score, Loader, Difficulty } from "./index.jsx";
+import {
+  CardGroup,
+  Card,
+  Score,
+  Loader,
+  Difficulty,
+  Notice,
+} from "./index.jsx";
 import { increaseDifficulty, shuffle, getCardData } from "../utils/index.js";
 
 const START_DIFFICULTY = "easy";
@@ -81,17 +88,24 @@ export function Game() {
 
   return (
     <>
-      <Difficulty {...{ difficultyName: difficulty }} />
+      <Difficulty {...{ difficulty, isVisible: score === 0 }} />
       <Score {...{ score, bestScore }} />
+
+      <Notice
+        subject="Game Over!"
+        message="Click Any Card To Restart"
+        isVisible={isGameOver}
+      />
+
       <CardGroup {...{ isGameOver, onRestartGame }}>
-        {items?.map((item) => (
+        {items.map((item) => (
           <Card
             key={item.id}
             {...{
               ...item,
               isGameOver,
-              endGame: onGameOver,
-              increaseScore: onIncreaseScore,
+              onGameOver,
+              onIncreaseScore,
             }}
           />
         ))}
