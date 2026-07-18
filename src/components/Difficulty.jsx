@@ -6,6 +6,7 @@ export function Difficulty({ difficulty, isVisible }) {
     <section
       className={`difficulty ${difficulty}${isVisible ? "" : " sr-only"}`}
       aria-labelledby="difficulty difficulty-name"
+      aria-live="polite"
     >
       <span id="difficulty" hidden>
         Difficulty

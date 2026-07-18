@@ -12,6 +12,7 @@ export function Score({ score, bestScore }) {
           aria-labelledby="current-score current-score-value"
         >
           <span aria-hidden="true">{score}</span>
+
           <span aria-hidden="true" className="sr-only" id="current-score">
             Current Score
           </span>
@@ -19,6 +20,7 @@ export function Score({ score, bestScore }) {
             {score}
           </span>
         </span>
+
         <span
           className="best-score"
           aria-live="polite"
@@ -27,6 +29,7 @@ export function Score({ score, bestScore }) {
         >
           <span aria-hidden="true">/</span>
           <span aria-hidden="true">{bestScore}</span>
+
           <span aria-hidden="true" className="sr-only" id="best-score">
             Best Score
           </span>
