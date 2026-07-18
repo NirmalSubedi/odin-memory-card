@@ -1,4 +1,5 @@
 import "../styles/Difficulty.css";
+import { capitalize } from "../utils/index.js";
 
 export function Difficulty({ difficulty, isVisible }) {
   return (
@@ -10,7 +11,7 @@ export function Difficulty({ difficulty, isVisible }) {
         Difficulty
       </span>
       <span id="difficulty-name" className="difficulty-name" aria-hidden="true">
-        {difficulty}
+        {capitalize(difficulty)}
       </span>
     </section>
   );

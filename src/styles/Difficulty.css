@@ -18,7 +18,6 @@
 .difficulty-name {
   font-family: var(--secondary-ff);
   font-size: var(--fs-md);
-  text-transform: capitalize;
 }
 
 @media (width<=600px) {
