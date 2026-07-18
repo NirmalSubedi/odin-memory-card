@@ -172,32 +172,6 @@ button {
   }
 }
 
-@keyframes flip {
-  50% {
-    transform: rotateY(180deg);
-  }
-}
-
-.flip {
-  animation: flip 400ms linear 1;
-}
-
-.reveal-increase {
-  animation: flip-right 500ms linear backwards;
-}
-
-.hide-increase {
-  animation: flip-right 500ms linear reverse;
-}
-
-.reveal-reset {
-  animation: flip-left 500ms linear backwards;
-}
-
-.hide-reset {
-  animation: flip-left 500ms linear reverse;
-}
-
 .sr-only {
   position: fixed;
   top: -100vh;

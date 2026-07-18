@@ -50,7 +50,7 @@ export function Game() {
   //     const cardData = await getCardData(option.cardAmount, option.cardOffset);
   //     if (ignore) return;
 
-  //     setItems(cardData);
+  //     setItems(shuffle(cardData));
   //   })();
 
   //   return () => (ignore = true);
@@ -90,13 +90,11 @@ export function Game() {
     <>
       <Difficulty {...{ difficulty, isVisible: score === 0 }} />
       <Score {...{ score, bestScore }} />
-
       <Notice
         subject="Game Over!"
         message="Click Any Card To Restart"
         isVisible={isGameOver}
       />
-
       <CardGroup {...{ isGameOver, onRestartGame }}>
         {items.map((item) => (
           <Card
