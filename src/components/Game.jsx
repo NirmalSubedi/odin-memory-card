@@ -1,4 +1,3 @@
-import Pokemon from "../assets/1.svg";
 import { useEffect, useState } from "react";
 import {
   CardGroup,
@@ -26,39 +25,34 @@ const difficultyConfig = {
   },
 };
 
-const initialItems = Array.from({ length: 15 }, () => ({
-  desc: "Crabominable",
-  img: Pokemon,
-  id: crypto.randomUUID(),
-}));
-
 export function Game() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [difficulty, setDifficulty] = useState(START_DIFFICULTY);
-  // const [items, setItems] = useState([]);
-  const [items, setItems] = useState(initialItems);
+  const [items, setItems] = useState([]);
 
-  // useEffect(() => {
-  //   let ignore = false;
+  const maxScore = items.length;
+  const isGameWon = score === maxScore;
 
-  //   (async function getData() {
-  //     if (!Object.hasOwn(difficultyConfig, difficulty)) return;
+  useEffect(() => {
+    let ignore = false;
 
-  //     const option = difficultyConfig[difficulty];
-  //     const cardData = await getCardData(option.cardAmount, option.cardOffset);
-  //     if (ignore) return;
+    (async function getData() {
+      if (!Object.hasOwn(difficultyConfig, difficulty)) return;
 
-  //     setItems(shuffle(cardData));
-  //   })();
+      const option = difficultyConfig[difficulty];
+      const cardData = await getCardData(option.cardAmount, option.cardOffset);
+      if (ignore) return;
 
-  //   return () => (ignore = true);
-  // }, [difficulty]);
+      setItems(shuffle(cardData));
+    })();
+
+    return () => (ignore = true);
+  }, [difficulty]);
 
   const onIncreaseScore = () => {
     const nextScore = score + 1;
-    const maxScore = items.length;
 
     setScore(nextScore);
     if (nextScore > bestScore) {
@@ -71,12 +65,10 @@ export function Game() {
     setScore(0);
     setIsGameOver(false);
 
-    const maxScore = items.length;
     const nextDifficulty = increaseDifficulty(difficulty);
     const isNewDifficulty = nextDifficulty !== difficulty;
 
-    if (score >= maxScore && isNewDifficulty)
-      return setDifficulty(nextDifficulty);
+    if (isGameWon && isNewDifficulty) return setDifficulty(nextDifficulty);
 
     shuffle(items);
     items.forEach((item) => (item.id = crypto.randomUUID()));
@@ -91,9 +83,11 @@ export function Game() {
       <Difficulty {...{ difficulty, isVisible: score === 0 }} />
       <Score {...{ score, bestScore }} />
       <Notice
-        subject="Game Over!"
-        message="Click Any Card To Restart"
-        isVisible={isGameOver}
+        {...{
+          subject: isGameWon ? "Victory!" : "Game Over!",
+          message: `Click Any Card To ${isGameWon ? "Continue" : "Restart"}`,
+          isVisible: isGameOver,
+        }}
       />
       <CardGroup {...{ isGameOver, onRestartGame }}>
         {items.map((item) => (
