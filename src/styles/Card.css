@@ -39,3 +39,18 @@
   align-self: end;
   text-transform: capitalize;
 }
+
+.stale {
+  animation: shake 400ms ease-out;
+}
+
+.fresh {
+  animation: wobble 400ms linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stale,
+  .fresh {
+    animation-duration: 0s;
+  }
+}
