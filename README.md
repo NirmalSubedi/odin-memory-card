@@ -2,7 +2,7 @@
 
 ### Select unique cards as they are _shuffled_.
 
-### [Play!](#)
+### [Play!](https://memoory-card.netlify.app/)
 
 ## Preview
 
